@@ -1,0 +1,133 @@
+<app-navBar></app-navBar>
+
+<form class="form-inline" [formGroup]="dateSelectionForm">
+  <div class="form-group">
+    <div style="margin-top: 15px">
+      <mat-list-item>
+        <mat-form-field>
+          <mat-select formControlName="vehicleType"  placeholder="Vehicle Type">
+            <ng-container *ngFor="let vehicleType of vehicleTypes">
+              <mat-option [value]="vehicleType">{{vehicleType}}
+                </mat-option>
+            </ng-container>
+          </mat-select>
+        </mat-form-field>
+    </mat-list-item>
+  </div>
+  </div>
+  <div class="form-group">
+    <label for="StartTime">Start Time</label>
+    <ejs-datetimepicker style="margin-left:10px" id="StartTime" formControlName="StartTime" class="e-field" data-name="StartTime" format="M/dd/yy h:mm a"
+          ></ejs-datetimepicker>
+  </div>
+  <div class="form-group">
+    <label for="EndTime">End Time</label>
+    <ejs-datetimepicker style="margin-left:10px" id="EndTime" formControlName="EndTime" class="e-field" data-name="EndTime" format="M/dd/yy h:mm a"
+          ></ejs-datetimepicker>
+  </div>
+  <button (click)="Go()" class="btn btn-primary" id="Search" [disabled]="!dateSelectionForm.valid">Search</button>
+</form>
+
+
+<br>
+<div class="table-responsive">
+  <table class="table table-hover">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">Vehicle Type</th>
+        <th scope="col">Reg. No</th>
+        <th scope="col">No. of Seats</th>
+        <th scope="col">Select Vehicle</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="table-active" *ngFor= "let vehicle of vehicles; index as i">
+        <td> {{vehicle.VehicleType}}</td>
+        <td> {{vehicle._id}}</td>
+        <td> {{vehicle.NoofSeats}}</td>
+        <td><button   (click)="makeReservation(vehicle)">Make Reservation</button></td>
+      </tr>
+  </table>
+  </div>
+
+<div *ngIf="FormVisible">
+  <br>
+  <mat-card class="reservation-form">
+      <mat-card-title>Reservation Details</mat-card-title>
+      <mat-card-content>
+  <form [formGroup]="reservationForm">  
+      <mat-list>
+              <!-- <mat-list-item>
+                  <mat-form-field > -->
+                    <label style="color: rgb(182, 177, 177) ; font-size: 85%">Departure</label>
+                <ejs-datetimepicker id="StartTime" placeholder='Departure' readonly="true" formControlName="StartTime"  class="e-field" data-name="StartTime" format="M/dd/yy h:mm a"
+               ></ejs-datetimepicker>
+              <!-- </mat-form-field>
+            </mat-list-item> -->
+<br>
+<label style="color: rgb(182, 177, 177) ; font-size: 85%">Arrival</label>
+              <ejs-datetimepicker id="EndTime" placeholder='Arrival' readonly="true" formControlName="EndTime" class="e-field" data-name="EndTime" format="M/dd/yy h:mm a"
+              ></ejs-datetimepicker>
+<br>
+          <mat-list-item>
+              <mat-form-field >
+               <input id="ABC" formControlName="Vehicle" readonly="true" matInput placeholder="Vehicle">
+              </mat-form-field>
+          </mat-list-item>
+
+            <mat-list-item>
+              <mat-form-field >
+                <input  formControlName="From"  matInput placeholder="From">
+              </mat-form-field>
+          </mat-list-item>
+
+          <mat-list-item>
+              <mat-form-field >
+                <input  formControlName="To"  matInput placeholder="To">
+              </mat-form-field>
+          </mat-list-item>
+
+          <mat-list-item>
+            <mat-form-field >
+              <input  formControlName="Distance"  matInput placeholder="Distance(Approximately in kms)">
+            </mat-form-field>
+          </mat-list-item>
+
+          <mat-list-item>
+              <mat-form-field >
+                <input  formControlName="Purpose"  matInput placeholder="Purpose">
+              </mat-form-field>
+          </mat-list-item>
+
+          <mat-list-item>
+              <mat-form-field >
+                  <input  formControlName="Passengers"  matInput placeholder="Number of passengers">
+              </mat-form-field>
+          </mat-list-item>
+
+          <mat-list-item>
+               <mat-form-field >
+                  <input  formControlName="PhoneNumber"  matInput placeholder="Phone Number">
+               </mat-form-field>
+          </mat-list-item>
+
+          <mat-list-item>
+              <mat-form-field >
+                  <input  formControlName="Lecturer"  matInput placeholder="Lecturer/Official in charge">
+              </mat-form-field>
+          </mat-list-item>
+
+          <mat-list-item>
+              <mat-form-field >
+                  <input  formControlName="Description"  matInput placeholder="Description">
+              </mat-form-field>
+          </mat-list-item>
+
+      <div class="middle">
+        <button (click)="submit()" [disabled]="!reservationForm.valid" class="btn btn-info">Save</button>
+      </div>
+    </mat-list>
+  </form> 
+</mat-card-content>
+</mat-card>
+</div>

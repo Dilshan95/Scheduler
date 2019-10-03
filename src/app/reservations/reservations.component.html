@@ -1,0 +1,27 @@
+<app-navBar></app-navBar>
+
+<div class="table-responsive">
+  <table class="table table-hover">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">Departure Date</th>
+        <th scope="col">Vehicle Type</th>
+        <th scope="col">Vehicle Number</th>
+        <th scope="col">From</th>
+        <th scope="col">To</th>
+        <th scope="col">Arrival Date</th>
+        <th scope="col">View Reservation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="table-active" *ngFor= "let reservation of reservations; index as i">
+        <td> {{reservation.StartDay}}</td>
+        <td> {{reservation.Vehicle.VehicleType}}</td>
+        <td> {{reservation.Vehicle._id}}</td>             
+        <td> {{reservation.From}}</td>
+        <td> {{reservation.To}}</td>
+        <td> {{reservation.EndDay}}</td>
+        <td><button   (click)="viewReservation(reservation)">View Reservation</button></td>
+      </tr>
+  </table>
+  </div>

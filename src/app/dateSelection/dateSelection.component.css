@@ -1,0 +1,49 @@
+
+.form-group{
+    margin-left: 8%;
+    margin-top: 10px;
+}
+
+#Search{
+    margin-left: 10%;
+}
+.custom-event-editor{
+    margin-left: 30%;
+}
+.middle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.reservation-form {
+    max-width: 400px;
+    margin-left: 35%;
+  }
+
+
+
+
+  
+  .mat-form-field {
+    width: 30%;
+    min-width: 300px;
+  }
+ .mat-list-item{
+    margin-top: 25px;
+ }
+ 
+
+
+mat-card-title,
+mat-card-content {
+  display: flex;
+  justify-content: center;
+}
+/* :host {
+  display: flex;
+  justify-content: center;
+  margin: 100px 0px;
+} */
+

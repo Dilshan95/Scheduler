@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { JwtHelperService } from '@auth0/angular-jwt';
+import { AuService } from './_services/au.service';
+
 
 @Component({
   selector: 'app-root',
@@ -6,5 +9,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'scheduler-new';
+ 
+  
+  jwtHelper = new JwtHelperService();
+
+  constructor(private authService: AuService) {}
+
+  ngOnInit() {
+    const token = localStorage.getItem('token');
+    if (token) {
+      this.authService.decodedToken = this.jwtHelper.decodeToken(token);
+    }
+  }
+   
+
+   
 }
+
+

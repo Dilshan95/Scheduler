@@ -1,0 +1,39 @@
+<app-navBar></app-navBar>
+
+  <div style="margin-left:45%; margin-top:50px;">
+    <h5>Select Vehicle Type</h5>
+  <div style="margin-top: 15px">
+    <mat-list-item>
+    <mat-form-field>
+        <mat-select [(ngModel)]="selectedVehicleType"  placeholder="Vehicle Type">
+          <ng-container *ngFor="let vehicleType of vehicleTypes">
+            <mat-option   [value]="vehicleType">{{vehicleType}}
+              </mat-option>
+          </ng-container>
+        </mat-select>
+      </mat-form-field>
+      <button style="margin-left: 20px" (click)="onVehicleTypeSelect()">View</button>
+  </mat-list-item>
+  </div>
+  </div>
+
+
+  <div class="table-responsive">
+<table class="table table-hover">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">Vehicle Type</th>
+      <th scope="col">Reg. No</th>
+      <th scope="col">No. of Seats</th>
+      <th scope="col">View Vehicle Schedule</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="table-active" *ngFor= "let vehicle of vehicles; index as i">
+      <td> {{vehicle.VehicleType}}</td>
+      <td> {{vehicle._id}}</td>
+      <td> {{vehicle.NoofSeats}}</td>
+      <td><button   (click)="viewSchedule(vehicle)">View Schedule</button></td>
+    </tr>
+</table>
+</div>

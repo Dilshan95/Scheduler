@@ -1,0 +1,95 @@
+<app-navBar></app-navBar>
+
+<div class="middle">
+  <h2>Reservation Details</h2>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped">
+
+      <tbody>
+          <tr class="table-active">
+              <td>Student ID</td>
+              <td> {{reservation.student.StudentID}}</td>
+          </tr>
+          <tr class="table-active">
+              <td>Student Name</td>
+              <td> {{reservation.student.Name}}</td>
+          </tr>
+        <tr class="table-active">
+            <td>Vehicle Type</td>
+            <td> {{reservation.Vehicle.VehicleType}}</td>
+        </tr>
+        <tr class="table-active">
+            <td>Vehicle No</td>
+            <td> {{reservation.Vehicle._id}}</td>
+        </tr>
+        <tr class="table-active">
+          <td>Departure</td>
+          <td>{{reservation.StartHour}}:{{reservation.StartMinnew}} {{reservation.StartDate}} </td>
+        </tr>
+        <tr class="table-active">
+          <td>Arrival</td>
+          <td> {{reservation.EndHour}}:{{reservation.EndMinnew}} {{reservation.EndDate}}</td>
+        </tr>
+        <tr class="table-active">
+            <td>From</td>
+            <td> {{reservation.From}}</td>
+        </tr>
+        <tr class="table-active">
+            <td>To</td>
+            <td> {{reservation.To}}</td>
+        </tr>
+        <tr class="table-active">
+            <td>Distance(Approximately in kms)</td>
+            <td> {{reservation.Distance}}</td>
+        </tr>
+        <tr class="table-active">
+            <td>Purpose</td>
+            <td> {{reservation.Purpose}}</td>
+        </tr>
+        <tr class="table-active">
+            <td>Number of passengers</td>
+            <td> {{reservation.Passengers}}</td>
+        </tr>
+        <tr class="table-active">
+            <td>Phone Number</td>
+            <td> {{reservation.PhoneNumber}}</td>
+        </tr>
+        <tr class="table-active">
+            <td>Lecturer/Official in charge</td>
+            <td> {{reservation.Lecturer}}</td>
+        </tr>
+        <tr class="table-active">
+            <td>Description</td>
+            <td> {{reservation.Description}}</td>
+        </tr>
+        <tr class="table-active">
+            <td>HOD's Approval</td>
+            <td *ngIf="reservation.HODConfirmation==1">Approved</td>
+            <td *ngIf="reservation.HODConfirmation==0">Pending</td>
+        </tr>
+        <tr class="table-active">
+            <td>Dean's Approval</td>
+            <td *ngIf="reservation.DeanConfirmation==1">Approved</td>
+            <td *ngIf="reservation.DeanConfirmation==0">Pending</td>
+      </tr>
+      <tr class="table-active">
+        <td>Reservation Confirmation</td>
+        <td *ngIf="reservation.ReservationConfirmation==1">Approved</td>
+        <td *ngIf="reservation.ReservationConfirmation==0">Pending</td>
+  </tr>
+  <tr class="table-active">
+    <td>Driver Name</td>
+    <td> {{driverName}}</td>
+  </tr>
+  <tr class="table-active">
+  <td>Driver Phone Number</td>
+  <td> {{driverPhoneNumber}}</td>
+  </tr>
+    </table>
+    </div>
+
+    <div class="middle">
+         <button type="button" class="btn btn-danger" (click)="cancelReservation(reservation)">Cancel</button>
+   </div>

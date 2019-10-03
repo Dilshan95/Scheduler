@@ -1,0 +1,25 @@
+.navbar-brand {
+    padding: 0px;
+  }
+  .navbar-brand>img {
+    height: 50px;
+    padding: 0px;
+    width: 50px;
+  }
+  .navbar-header {
+    width: 0%;
+    margin: 0%;
+    float: inline-end;
+  }
+  .nav-item button{
+    color: #8b6f47;
+    background-color: Transparent;
+  }
+  .nav-item button:hover{
+    background-color: #ffef96;
+  }
+
+  .dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+ }

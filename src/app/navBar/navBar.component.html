@@ -1,0 +1,31 @@
+<nav style="background-color:#660000 " class="navbar navbar-expand-lg">
+  <div class="container">
+  <div class="navbar-header">
+    <a class="navbar-brand" href="https://www.kln.ac.lk/"><img src="/assets/images/UOK.png" alt="University of Kelaniya">
+    </a>
+  </div>
+  <div id="heading">
+      <h5 style="color:#ffffff; margin-left: -75%">Transport Division</h5>
+      <h6 style="color:#ffffff; margin-left: -73%">University of Kelaniya</h6>
+  </div>
+  <div>
+    <ul class="nav nav-pills" style="margin-left:-40%">
+      <li class="nav-item">
+          <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Check Availability<i class="fa fa-caret-down"></i></button>
+        <!-- <button class="nav-link btn button1" (click)="vehicleSelection()">Check Availability</button> -->
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <button  class="dropdown-item" (click)="dateSelection()">Check by Date</button >
+        <button  class="dropdown-item" (click)="vehicleSelection()">Check by Vehicle</button >
+      </div>
+      </div>
+      </li>
+      <li class="nav-item">
+      <button class="nav-link btn button1" (click)="myReservations()">My Reservations</button>
+      </li>
+    </ul>
+  </div>
+          <button type="button" class="btn btn-warning" (click)="logout()">Log Out</button>
+      </div>
+    
+</nav>

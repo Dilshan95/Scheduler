@@ -1,0 +1,12 @@
+table{
+    width: 800px;
+    margin-left: 25%;
+    margin-top: 10px;
+    align-self: auto;
+  }
+
+  .middle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
